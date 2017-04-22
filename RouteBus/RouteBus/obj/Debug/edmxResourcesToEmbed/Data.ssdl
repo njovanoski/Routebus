@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RouteBusModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Ime" Type="nvarchar" MaxLength="50" />
+    <Property Name="Prezime" Type="nvarchar" MaxLength="50" />
+    <Property Name="userName" Type="nvarchar" MaxLength="50" />
+    <Property Name="pass" Type="nvarchar" MaxLength="50" />
+    <Property Name="role" Type="nvarchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="Postojki">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Ime" Type="nvarchar" MaxLength="50" />
+    <Property Name="Adresa" Type="nvarchar" MaxLength="70" />
+    <Property Name="Lokacija" Type="nvarchar" MaxLength="50" />
+    <Property Name="gMapsCoords" Type="nvarchar" MaxLength="90" />
+  </EntityType>
+  <EntityType Name="Prevoznik">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Ime" Type="nvarchar" MaxLength="50" />
+    <Property Name="Linii" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Ruti">
+    <Key>
+      <PropertyRef Name="Id_Postojka" />
+      <PropertyRef Name="Id_Prevoznik" />
+    </Key>
+    <Property Name="Id_Postojka" Type="int" Nullable="false" />
+    <Property Name="Id_Prevoznik" Type="int" Nullable="false" />
+    <Property Name="Start" Type="nvarchar" MaxLength="20" />
+    <Property Name="End" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_Ruti_Postojki">
+    <End Role="Postojki" Type="Self.Postojki" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Ruti" Type="Self.Ruti" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Postojki">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ruti">
+        <PropertyRef Name="Id_Postojka" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ruti_Prevoznik">
+    <End Role="Prevoznik" Type="Self.Prevoznik" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Ruti" Type="Self.Ruti" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Prevoznik">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ruti">
+        <PropertyRef Name="Id_Prevoznik" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="RouteBusModelStoreContainer">
+    <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Postojki" EntityType="Self.Postojki" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Prevoznik" EntityType="Self.Prevoznik" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ruti" EntityType="Self.Ruti" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Ruti_Postojki" Association="Self.FK_Ruti_Postojki">
+      <End Role="Postojki" EntitySet="Postojki" />
+      <End Role="Ruti" EntitySet="Ruti" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ruti_Prevoznik" Association="Self.FK_Ruti_Prevoznik">
+      <End Role="Prevoznik" EntitySet="Prevoznik" />
+      <End Role="Ruti" EntitySet="Ruti" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

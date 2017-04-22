@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RouteBusModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Ime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Prezime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="pass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="role" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Postojki">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Ime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Adresa" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+    <Property Name="Lokacija" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="gMapsCoords" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Ruti" Relationship="Self.FK_Ruti_Postojki" FromRole="Postojki" ToRole="Ruti" />
+  </EntityType>
+  <EntityType Name="Prevoznik">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Ime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Linii" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Ruti" Relationship="Self.FK_Ruti_Prevoznik" FromRole="Prevoznik" ToRole="Ruti" />
+  </EntityType>
+  <EntityType Name="Ruti">
+    <Key>
+      <PropertyRef Name="Id_Postojka" />
+      <PropertyRef Name="Id_Prevoznik" />
+    </Key>
+    <Property Name="Id_Postojka" Type="Int32" Nullable="false" />
+    <Property Name="Id_Prevoznik" Type="Int32" Nullable="false" />
+    <Property Name="Start" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="End" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Postojki" Relationship="Self.FK_Ruti_Postojki" FromRole="Ruti" ToRole="Postojki" />
+    <NavigationProperty Name="Prevoznik" Relationship="Self.FK_Ruti_Prevoznik" FromRole="Ruti" ToRole="Prevoznik" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Ruti_Postojki">
+    <End Role="Postojki" Type="Self.Postojki" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Ruti" Type="Self.Ruti" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Postojki">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ruti">
+        <PropertyRef Name="Id_Postojka" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ruti_Prevoznik">
+    <End Role="Prevoznik" Type="Self.Prevoznik" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Ruti" Type="Self.Ruti" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Prevoznik">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ruti">
+        <PropertyRef Name="Id_Prevoznik" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="RouteBusEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Admin" EntityType="Self.Admin" />
+    <EntitySet Name="Postojki" EntityType="Self.Postojki" />
+    <EntitySet Name="Prevoznik" EntityType="Self.Prevoznik" />
+    <EntitySet Name="Ruti" EntityType="Self.Ruti" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <AssociationSet Name="FK_Ruti_Postojki" Association="Self.FK_Ruti_Postojki">
+      <End Role="Postojki" EntitySet="Postojki" />
+      <End Role="Ruti" EntitySet="Ruti" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ruti_Prevoznik" Association="Self.FK_Ruti_Prevoznik">
+      <End Role="Prevoznik" EntitySet="Prevoznik" />
+      <End Role="Ruti" EntitySet="Ruti" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
