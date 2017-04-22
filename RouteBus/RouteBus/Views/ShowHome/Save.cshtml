@@ -1,0 +1,39 @@
+﻿@model RouteBus.Models.uAccount
+<h2>Save</h2>
+@using (Html.BeginForm("save", "home", FormMethod.Post, new { id = "popupForm" }))
+{
+    if (Model != null && Model.Id > 0)
+    {
+        @Html.HiddenFor(a => a.Id)
+    }
+
+    <div class="form-group">
+        <label>Ime</label>
+        @Html.TextBoxFor(a => a.Ime, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Ime)
+    </div>
+    <div class="form-group">
+        <label>Prezime</label>
+        @Html.TextBoxFor(a => a.Prezime, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Prezime)
+    </div>
+    <div class="form-group">
+        <label>userName</label>
+        @Html.TextBoxFor(a => a.userName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.userName)
+    </div>
+    <div class="form-group">
+        <label>pass</label>
+        @Html.TextBoxFor(a => a.pass, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.pass)
+    </div>
+    <div class="form-group">
+        <label>role</label>
+        @Html.TextBoxFor(a => a.role, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.role)
+    </div>
+
+    <div>
+        <input type="submit" value="Save" />
+    </div>
+}

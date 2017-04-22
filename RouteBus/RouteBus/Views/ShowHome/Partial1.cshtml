@@ -1,0 +1,35 @@
+﻿@model RouteBus.Models.uAccount
+
+<h2>Delete Account</h2>
+@using (Html.BeginForm("delete", "home", FormMethod.Post, new { id = "popupForm" }))
+{
+    @Html.HiddenFor(a => a.Id)
+    <div class="form-group">
+        <label>Ime</label>
+        <p>@Model.Ime</p>
+    </div>
+
+    <div class="form-group">
+        <label>Prezime</label>
+        <p>@Model.Prezime</p>
+    </div>
+
+    <div class="form-group">
+        <label>userName</label>
+        <p>@Model.userName</p>
+    </div>
+
+    <div class="form-group">
+        <label>pass</label>
+        <p>@Model.pass</p>
+    </div>
+
+    <div class="form-group">
+        <label>role</label>
+        <p>@Model.role</p>
+    </div>
+
+    <div>
+        <input type="submit" value="Delete" />
+    </div>
+}
