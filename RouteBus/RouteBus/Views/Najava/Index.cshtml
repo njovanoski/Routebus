@@ -26,31 +26,25 @@
     <!-- Custom styles -->
     <link href="css/style.css" rel="stylesheet">
     <link href="css/style-responsive.css" rel="stylesheet" />
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 -->
-    <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <script src="js/respond.min.js"></script>
-    <![endif]-->
 </head>
 
 <body class="login-img3-body">
 
-    <div class="container">
-@using (Html.BeginForm(new {@class = "login-form" }))
+    <div class="login-form">
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
             <div class="login-wrap">
                 <p class="login-img"><i class="icon_lock_alt"></i></p>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="icon_profile"></i></span>
-                    @Html.EditorFor(model => model.userName, new {@class="form-control", @placeholder="Username"})
+                    @Html.EditorFor(model => model.userName, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.userName)
                     <!--<input type="text" class="form-control" placeholder="Username" autofocus>-->
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="icon_key_alt"></i></span>
-                    @Html.EditorFor(model => model.pass, new {@class="form-control", @placeholder="Password"})
+                    @Html.EditorFor(model => model.pass, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.pass)
                     <!--<input type="password" class="form-control" placeholder="Password">-->
                 </div>

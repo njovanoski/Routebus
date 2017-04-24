@@ -10,7 +10,6 @@ namespace RouteBus.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "RouteBus.Models.DatabaseContext";
         }
 
         protected override void Seed(RouteBus.Models.DatabaseContext context)

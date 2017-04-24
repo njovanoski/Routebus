@@ -21,6 +21,8 @@ namespace RouteBus.Models
         }
 
         public DbSet<uAccount> UAccount { get; set; }
+        public DbSet<Postojki> POstojki { get; set; }
+        public DbSet<Prevoznik> PRevoznik { get; set; }
     
     }
 }

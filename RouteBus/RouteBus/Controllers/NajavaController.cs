@@ -28,7 +28,7 @@ namespace RouteBus.Controllers
                 {
                     Session["KorisnikID"] = kor.Id.ToString();
                     Session["KorisnickoIme"] = kor.userName.ToString();
-                    return RedirectToAction("UspesnoNajaven");
+                    return RedirectToAction("Admin");
                 }
                 else
                 {
@@ -38,7 +38,7 @@ namespace RouteBus.Controllers
             return View();
         }
 
-        public ActionResult UspesnoNajaven()
+        public ActionResult Admin()
         {
             if (Session["KorisnikID"] != null)
             {
@@ -48,6 +48,16 @@ namespace RouteBus.Controllers
             {
                 return RedirectToAction("Najava");
             }
+        }
+
+        public ActionResult DodajPostojka()
+        {
+            return View();
+        }
+
+        public ActionResult VidiPostojka()
+        {
+            return View();
         }
 
 

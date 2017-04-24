@@ -177,39 +177,17 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NajavaController.cs" />
-    <Compile Include="Controllers\ShowHomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201704220742377_InitialCreate.cs" />
-    <Compile Include="Migrations\201704220742377_InitialCreate.Designer.cs">
-      <DependentUpon>201704220742377_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201704220748475_Initial.cs" />
-    <Compile Include="Migrations\201704220748475_Initial.Designer.cs">
-      <DependentUpon>201704220748475_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201704241915191_Postojka.cs" />
+    <Compile Include="Migrations\201704241915191_Postojka.Designer.cs">
+      <DependentUpon>201704241915191_Postojka.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DatabaseContext.cs" />
-    <Compile Include="Models\Extended\Account.cs" />
-    <Compile Include="Models\Model.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\uAccount.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\Postojki.cs" />
+    <Compile Include="Models\uAccount.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -596,47 +574,6 @@
     <Content Include="assets\morris.js-0.4.3\spec\vendor\sinon-chai-2.1.2.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\themes\base\accordion.css" />
-    <Content Include="Content\themes\base\all.css" />
-    <Content Include="Content\themes\base\autocomplete.css" />
-    <Content Include="Content\themes\base\base.css" />
-    <Content Include="Content\themes\base\button.css" />
-    <Content Include="Content\themes\base\core.css" />
-    <Content Include="Content\themes\base\datepicker.css" />
-    <Content Include="Content\themes\base\dialog.css" />
-    <Content Include="Content\themes\base\draggable.css" />
-    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
-    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
-    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_444444_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_555555_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_777620_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_777777_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_cc0000_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_ffffff_256x240.png" />
-    <Content Include="Content\themes\base\jquery-ui.css" />
-    <Content Include="Content\themes\base\jquery-ui.min.css" />
-    <Content Include="Content\themes\base\menu.css" />
-    <Content Include="Content\themes\base\progressbar.css" />
-    <Content Include="Content\themes\base\resizable.css" />
-    <Content Include="Content\themes\base\selectable.css" />
-    <Content Include="Content\themes\base\selectmenu.css" />
-    <Content Include="Content\themes\base\slider.css" />
-    <Content Include="Content\themes\base\sortable.css" />
-    <Content Include="Content\themes\base\spinner.css" />
-    <Content Include="Content\themes\base\tabs.css" />
-    <Content Include="Content\themes\base\theme.css" />
-    <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="css\bootstrap-theme.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\elegant-icons-style.css" />
@@ -748,16 +685,6 @@
     <Content Include="js\sparkline-chart.js" />
     <Content Include="js\sparklines.js" />
     <Content Include="js\xcharts.min.js" />
-    <Content Include="Models\Model.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model.edmx</DependentUpon>
-      <LastGenOutput>Model.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\Model.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model.edmx</DependentUpon>
-      <LastGenOutput>Model.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="assets\chart-master\component.json" />
@@ -827,23 +754,10 @@
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\FontAwesome.otf" />
-    <EntityDeploy Include="Models\Model.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Model.edmx.diagram">
-      <DependentUpon>Model.edmx</DependentUpon>
-    </Content>
-    <None Include="Scripts\jquery-3.1.1.intellisense.js" />
-    <Content Include="Scripts\jquery-3.1.1.js" />
-    <Content Include="Scripts\jquery-3.1.1.min.js" />
-    <Content Include="Scripts\jquery-3.1.1.slim.js" />
-    <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
-    <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.1.1.min.map" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery-ui-1.12.1.js" />
-    <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -852,6 +766,15 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Najava\assets1\css\bootstrap.css" />
+    <Content Include="Views\Najava\assets1\css\custom.css" />
+    <Content Include="Views\Najava\assets1\css\font-awesome.css" />
+    <Content Include="Views\Najava\assets1\fonts\fontawesome-webfont.svg" />
+    <Content Include="Views\Najava\assets1\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Views\Najava\assets1\img\logo.png" />
+    <Content Include="Views\Najava\assets1\js\bootstrap.min.js" />
+    <Content Include="Views\Najava\assets1\js\custom.js" />
+    <Content Include="Views\Najava\assets1\js\jquery-1.10.2.js" />
     <Content Include="Views\Najava\assets\chart-master\.gitignore" />
     <Content Include="Views\Najava\assets\chart-master\Chart.js" />
     <Content Include="Views\Najava\assets\chart-master\Chart.min.js" />
@@ -1082,6 +1005,11 @@
     <Content Include="Views\Najava\assets\ckeditor\skins\moono\images\close.png" />
     <Content Include="Views\Najava\assets\ckeditor\skins\moono\images\mini.png" />
     <Content Include="Views\Najava\assets\ckeditor\styles.js" />
+    <Content Include="Views\Najava\assets\css\bootstrap.css" />
+    <Content Include="Views\Najava\assets\css\custom.css" />
+    <Content Include="Views\Najava\assets\css\font-awesome.css" />
+    <Content Include="Views\Najava\assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="Views\Najava\assets\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Views\Najava\assets\fullcalendar\changelog.txt" />
     <Content Include="Views\Najava\assets\fullcalendar\demos\agenda-views.html" />
     <Content Include="Views\Najava\assets\fullcalendar\demos\basic-views.html" />
@@ -1116,6 +1044,7 @@
     <Content Include="Views\Najava\assets\fullcalendar\jquery\jquery-1.8.1.min.js" />
     <Content Include="Views\Najava\assets\fullcalendar\jquery\jquery-ui-1.8.23.custom.min.js" />
     <Content Include="Views\Najava\assets\fullcalendar\MIT-LICENSE.txt" />
+    <Content Include="Views\Najava\assets\img\logo.png" />
     <Content Include="Views\Najava\assets\jquery-easy-pie-chart\examples\excanvas.js" />
     <Content Include="Views\Najava\assets\jquery-easy-pie-chart\examples\index.html" />
     <Content Include="Views\Najava\assets\jquery-easy-pie-chart\examples\style.css" />
@@ -1186,6 +1115,9 @@
     <Content Include="Views\Najava\assets\jquery-ui\jquery-ui-1.10.1.custom.min.js" />
     <Content Include="Views\Najava\assets\jquery-ui\jquery-ui-1.10.2.custom.min.js" />
     <Content Include="Views\Najava\assets\jquery-ui\jquery-ui-1.9.2.custom.min.js" />
+    <Content Include="Views\Najava\assets\js\bootstrap.min.js" />
+    <Content Include="Views\Najava\assets\js\custom.js" />
+    <Content Include="Views\Najava\assets\js\jquery-1.10.2.js" />
     <Content Include="Views\Najava\assets\morris.js-0.4.3\.gitignore" />
     <Content Include="Views\Najava\assets\morris.js-0.4.3\examples\area-as-line.html" />
     <Content Include="Views\Najava\assets\morris.js-0.4.3\examples\area.html" />
@@ -1351,6 +1283,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Najava\Najava.cshtml" />
     <Content Include="Views\Najava\UspesnoNajaven.cshtml" />
     <Content Include="Views\Najava\assets\chart-master\component.json" />
@@ -1424,9 +1357,24 @@
     <Content Include="Views\Najava\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Views\Najava\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Views\Najava\Index.cshtml" />
-    <Content Include="Views\ShowHome\Index.cshtml" />
-    <Content Include="Views\ShowHome\Save.cshtml" />
-    <Content Include="Views\ShowHome\Partial1.cshtml" />
+    <Content Include="Views\Najava\assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="Views\Najava\assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Views\Najava\assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="Views\Najava\assets\fonts\FontAwesome.otf" />
+    <Content Include="Views\Najava\assets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Views\Najava\assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Views\Najava\assets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Views\Najava\assets\fonts\glyphicons-halflings-regulard41d.eot" />
+    <Content Include="Views\Najava\assets1\fonts\fontawesome-webfont.eot" />
+    <Content Include="Views\Najava\assets1\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Views\Najava\assets1\fonts\fontawesome-webfont.woff" />
+    <Content Include="Views\Najava\assets1\fonts\FontAwesome.otf" />
+    <Content Include="Views\Najava\assets1\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Views\Najava\assets1\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Views\Najava\assets1\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Views\Najava\assets1\fonts\glyphicons-halflings-regulard41d.eot" />
+    <Content Include="Views\Najava\Admin.cshtml" />
+    <Content Include="Views\Najava\DodajPostojka.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1444,11 +1392,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201704220742377_InitialCreate.resx">
-      <DependentUpon>201704220742377_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201704220748475_Initial.resx">
-      <DependentUpon>201704220748475_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201704241915191_Postojka.resx">
+      <DependentUpon>201704241915191_Postojka.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
