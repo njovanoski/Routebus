@@ -1,0 +1,57 @@
+﻿@model IEnumerable<RouteBusver2.Stop>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.StopName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Street)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Long)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LAt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MapsUsable)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.StopName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Street)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Long)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LAt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MapsUsable)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.StopID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.StopID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.StopID })
+        </td>
+    </tr>
+}
+
+</table>

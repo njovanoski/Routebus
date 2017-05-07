@@ -111,10 +111,23 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="UIModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UIModel.edmx</DependentUpon>
+      <LastGenOutput>UIModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="UIModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UIModel.edmx</DependentUpon>
+      <LastGenOutput>UIModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CrudBusController.cs" />
+    <Compile Include="Controllers\CrudStopController.cs" />
+    <Compile Include="Controllers\CrudTimeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Users.cs" />
     <Compile Include="Global.asax.cs">
@@ -136,6 +149,30 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RouteBusLoginModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Stop.cs">
+      <DependentUpon>UIModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Time.cs">
+      <DependentUpon>UIModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Trasport.cs">
+      <DependentUpon>UIModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UIModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UIModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UIModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UIModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UIModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UIModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="User.cs">
       <DependentUpon>RouteBusLoginModel.tt</DependentUpon>
     </Compile>
@@ -153,6 +190,28 @@
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\UserDashBoard.cshtml" />
+    <EntityDeploy Include="UIModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>UIModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="UIModel.edmx.diagram">
+      <DependentUpon>UIModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Views\CrudStop\Create.cshtml" />
+    <Content Include="Views\CrudStop\Delete.cshtml" />
+    <Content Include="Views\CrudStop\Details.cshtml" />
+    <Content Include="Views\CrudStop\Edit.cshtml" />
+    <Content Include="Views\CrudStop\Index.cshtml" />
+    <Content Include="Views\CrudBus\Create.cshtml" />
+    <Content Include="Views\CrudBus\Delete.cshtml" />
+    <Content Include="Views\CrudBus\Details.cshtml" />
+    <Content Include="Views\CrudBus\Edit.cshtml" />
+    <Content Include="Views\CrudBus\Index.cshtml" />
+    <Content Include="Views\CrudTime\Create.cshtml" />
+    <Content Include="Views\CrudTime\Delete.cshtml" />
+    <Content Include="Views\CrudTime\Details.cshtml" />
+    <Content Include="Views\CrudTime\Edit.cshtml" />
+    <Content Include="Views\CrudTime\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,7 +1,7 @@
 USE [master]
 GO
 
-/****** Object:  Database [RouteBusDataBase]    Script Date: 5/4/2017 4:11:59 PM ******/
+/****** Object:  Database [RouteBusDataBase]    Script Date: 5/7/2017 5:52:44 PM ******/
 CREATE DATABASE [RouteBusDataBase] ON  PRIMARY 
 ( NAME = N'RouteBusDataBase', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL10.MSSQLSERVER\MSSQL\DATA\RouteBusDataBase.mdf' , SIZE = 2048KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
  LOG ON 

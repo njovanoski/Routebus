@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RouteBusDataBaseModel1StoreContainer" CdmEntityContainer="RouteBusDataBaseCRUDEntities">
+    <EntitySetMapping Name="Stops">
+      <EntityTypeMapping TypeName="RouteBusDataBaseModel1.Stop">
+        <MappingFragment StoreEntitySet="Stops">
+          <ScalarProperty Name="StopID" ColumnName="StopID" />
+          <ScalarProperty Name="StopName" ColumnName="StopName" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="Long" ColumnName="Long" />
+          <ScalarProperty Name="LAt" ColumnName="LAt" />
+          <ScalarProperty Name="MapsUsable" ColumnName="MapsUsable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Times">
+      <EntityTypeMapping TypeName="RouteBusDataBaseModel1.Time">
+        <MappingFragment StoreEntitySet="Time">
+          <ScalarProperty Name="TimeID" ColumnName="TimeID" />
+          <ScalarProperty Name="Time1" ColumnName="Time" />
+          <ScalarProperty Name="StopID" ColumnName="StopID" />
+          <ScalarProperty Name="BusID" ColumnName="BusID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Trasports">
+      <EntityTypeMapping TypeName="RouteBusDataBaseModel1.Trasport">
+        <MappingFragment StoreEntitySet="Trasport">
+          <ScalarProperty Name="BusID" ColumnName="BusID" />
+          <ScalarProperty Name="BusName" ColumnName="BusName" />
+          <ScalarProperty Name="Line" ColumnName="Line" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

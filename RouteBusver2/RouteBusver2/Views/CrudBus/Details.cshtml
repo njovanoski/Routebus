@@ -1,0 +1,34 @@
+﻿@model RouteBusver2.Trasport
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Trasport</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BusName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BusName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Line)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Line)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BusID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -2,11 +2,24 @@
 
 @{
     ViewBag.Title = "UserDashBoard";
-}
+    
+    
+    using (Html.BeginForm())
+    {
+        <button type="button" value="Postojki" title="Postojka" onclick="location.href='@Url.Action("Index","CrudStop")'" />
+    } 
+    
+                                                                                                                        
+    }
+
+                                                                                                            
 
 < fieldset >
     < legend > User DashBoard < /legend>
 
 @if(Session["UserName"] != null) {<text> Welcome@Session["UserName"].ToString()</text>
- 
-    } < /fieldset>
+    
+    
+  } < /fieldset>
+
+
